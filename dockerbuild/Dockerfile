@@ -26,11 +26,14 @@ RUN echo $APP_UNAME $APP_GRPNAME $APP_UID $APP_GID $BDATE
 #
 RUN apt-get -y update
 RUN apt-get -y upgrade
-RUN apt-get install -y build-essential git vim nano
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/Los_Angeles
+
+RUN apt-get install -y build-essential git vim nano python3 python3-pip jupyter
 
 # Install latest gfortran and fftw
-RUN apt-get install -y libfftw3-dev libfftw3-mpi-dev libopenmpi-dev gfortran python3 python3-pip
-RUN pip3 install numpy matplotlib
+RUN apt-get install -y libfftw3-dev libfftw3-mpi-dev libopenmpi-dev gfortran
+RUN pip3 install pandas 
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
@@ -64,7 +67,7 @@ WORKDIR /home/$APP_UNAME/target
 #
 #
 # Add metadata to dockerfile using labels
-LABEL "org.scec.project"="GMSV Toolkit"
+LABEL "org.scec.project"="GMSVToolkit"
 LABEL org.scec.responsible_person="Fabio Silva"
 LABEL org.scec.primary_contact="fsilv@usc.edu"
 LABEL version="$BDATE"

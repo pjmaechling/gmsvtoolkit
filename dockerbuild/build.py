@@ -12,8 +12,8 @@ day=dt.day
 mdate="%02d%02d"%(month,day)
 
 
-cmd = "docker build --progress=plain --no-cache=false -f Dockerfile . -t gmsvtoolkit:%s " \
-"--build-arg APP_UNAME=scecuser --build-arg APP_GRPNAME=`id -g -nr` " \
-"--build-arg APP_UID=`id -u` --build-arg APP_GID=`id -g` --build-arg BDATE=%s"%(mdate,mdate)
-    
+cmd = "docker build --progress=plain --no-cache=false -f Dockerfile . -t gtk_jup " \
+"--build-arg APP_UNAME=gtkuser --build-arg APP_GRPNAME=`id -g -nr` " \
+"--build-arg APP_UID=`id -u` --build-arg APP_GID=`id -g` --build-arg BDATE=%s"%(mdate)
+
 os.system(cmd)
