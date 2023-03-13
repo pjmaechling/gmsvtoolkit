@@ -74,5 +74,5 @@ LABEL version="$BDATE"
 
 
 #Create interactive entry point
-ENTRYPOINT ["/usr/bin/jupyter","notebook","--ip=0.0.0.0"]
-#CMD ["notebook","--ip 0.0.0.0","--no-browser","--allow-root"]
+ENTRYPOINT ["/usr/bin/jupyter","notebook","--ip=0.0.0.0","--notebook-dir=/home/gtkuser/target","--allow-root","--no-browser"]
+CMD ["/bin/bash"]
