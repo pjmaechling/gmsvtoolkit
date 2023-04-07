@@ -249,7 +249,7 @@ def NGA08(model_name, Mw, Rjb, Vs30, period, epislon=0, NGAs=None,
         # compute median, std directly for the existing period in the
         # period list of the NGA model
         values = mapfunc(ngaM, Mw, Rjb, Vs30, period, rake, **kwds)
-        values = np.array(values)
+        values = np.array(values, dtype=object)
 
     if itmp == 0:
         # do the interpolation for periods that is not in the period
@@ -276,8 +276,8 @@ def NGA08(model_name, Mw, Rjb, Vs30, period, epislon=0, NGAs=None,
                 # median value is in g
                 values[:, icmp] = logline(np.log(period_low),
                                           np.log(period_high),
-                                          np.log(values_low[:, icmp]),
-                                          np.log(values_high[:, icmp]),
+                                          np.log(values_low[:, icmp].astype(float)),
+                                          np.log(values_high[:, icmp].astype(float)),
                                           np.log(period))
                 # change the median into g unit (logline gives the
                 # result in ln(g))

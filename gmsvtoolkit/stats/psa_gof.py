@@ -73,15 +73,10 @@ class PSAGoF(object):
                             help="input directory with observed data")
         parser.add_argument("--output-dir", dest="output_dir",
                             help="output directory")
-        parser.add_argument("-o", "--output", "--output-file",
-                            dest="output_file",
-                            help="output rd100 file")
         parser.add_argument("--src-file", "--src", dest="src_file",
                             help="source description file (SRC file)")
         parser.add_argument("--station-list", "-s", dest="station_list",
                             help="station list")
-        parser.add_argument("--labels", "-l", dest="labels",
-                            help="comma-separated comparison labels")
         parser.add_argument("--comp-label", dest="comp_label",
                             help="comparison label used for the output file prefix")
         parser.add_argument("--rotd100", dest="rotd100", action="store_true",
@@ -105,9 +100,11 @@ class PSAGoF(object):
         if not args.src_file:
             print("[ERROR]: Please specify source description file!")
             sys.exit(1)
+        src_file = os.path.abspath(args.src_file)
         if not args.station_list:
             print("[ERROR]: Please specify station list!")
             sys.exit(1)
+        station_list = os.path.abspath(args.station_list)
         if not args.sims_dir:
             print("[ERROR]: Please specify simulation folder!")
             sys.exit(1)
@@ -142,7 +139,7 @@ class PSAGoF(object):
     def run_psa_gof(self, a_station_list, a_src_file,
                     obs_dir, sims_dir, output_dir):
         """
-        Parse parameters and then run PSAGoF module
+        Calculate residuals between data from obs_dir and sims_dir
         """
         install = gmsvtoolkit_config.GMSVToolKitConfig.get_instance()
 

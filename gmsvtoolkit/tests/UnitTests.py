@@ -45,12 +45,22 @@ import unittest
 import seqnum
 
 # Import GMSVToolkit unit test modules
+from test_pynga import TestPyNGA
 from test_rotdxx import TestRotDXX
 from test_plot_rotdxx import TestPlotRotDXX
 from test_psa_gof import TestPSAGoF
 from test_plot_psa_gof import TestPlotPSAGoF
+from test_plot_fas_gof import TestPlotFASGoF
 from test_plot_map import TestPlotMap
 from test_peer_formatter import TestPEERFormat
+from test_plot_fas import TestPlotFAS
+from test_plot_fas_comparison import TestPlotFASComparison
+from test_fas import TestFAS
+from test_fas_gof import TestFASGoF
+from test_calc_gmpe import TestCalcGMPE
+from test_gmpe_gof import TestGMPEGoF
+from test_plot_gmpe_gof import TestPlotGMPEGoF
+from test_plot_gmpe import TestPlotGMPE
 
 def cleanup(dir_name):
     """
@@ -87,12 +97,22 @@ sys.stdout = Logger(os.path.join(LOG_DIR, "unit_tests.log"))
 TS = unittest.TestSuite()
 
 # Add GMSVToolkit tests
+TS.addTest(unittest.makeSuite(TestPyNGA))
 TS.addTest(unittest.makeSuite(TestPEERFormat))
 TS.addTest(unittest.makeSuite(TestRotDXX))
 TS.addTest(unittest.makeSuite(TestPlotRotDXX))
 TS.addTest(unittest.makeSuite(TestPSAGoF))
 TS.addTest(unittest.makeSuite(TestPlotPSAGoF))
 TS.addTest(unittest.makeSuite(TestPlotMap))
+TS.addTest(unittest.makeSuite(TestPlotFAS))
+TS.addTest(unittest.makeSuite(TestPlotFASComparison))
+TS.addTest(unittest.makeSuite(TestFAS))
+TS.addTest(unittest.makeSuite(TestFASGoF))
+TS.addTest(unittest.makeSuite(TestPlotFASGoF))
+TS.addTest(unittest.makeSuite(TestCalcGMPE))
+TS.addTest(unittest.makeSuite(TestPlotGMPE))
+TS.addTest(unittest.makeSuite(TestGMPEGoF))
+TS.addTest(unittest.makeSuite(TestPlotGMPEGoF))
 
 # Done, run the tests
 print("==> Running GMSVToolkit Unit Tests...")
