@@ -24,16 +24,16 @@ BDATE=04262023
 RUN echo $APP_UNAME $APP_GRPNAME $APP_UID $APP_GID $BDATE
 
 #
-RUN apt-get -y update
-RUN apt-get -y upgrade
+#RUN apt-get -y update
+#RUN apt-get -y upgrade
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/Los_Angeles
 
-RUN apt-get install -y build-essential git vim nano python3 python3-pip
+RUN apt-get install -y build-essential git python3 python3-pip
 
 # Install latest gfortran and fftw
 RUN apt-get install -y libfftw3-dev libfftw3-mpi-dev libopenmpi-dev gfortran
-RUN pip3 install pandas notebook jupyterlab
+RUN pip3 install pandas jupyterlab
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
