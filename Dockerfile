@@ -33,7 +33,7 @@ RUN apt-get install -y build-essential git python3 python3-pip
 
 # Install latest gfortran and fftw
 RUN apt-get install -y libfftw3-dev gfortran
-RUN pip3 install pandas jupyterlab
+RUN pip3 install matplotlib pandas jupyterlab
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
