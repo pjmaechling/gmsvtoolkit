@@ -60,8 +60,8 @@ ENV GMSVTOOLKIT_DIR="/home/$APP_UNAME/gmsvtoolkit/gmsvtoolkit"
 
 # Define file input/output mounted disk
 #
-VOLUME /home/$APP_UNAME/gmsvtoolkit/tutorial
-WORKDIR /home/$APP_UNAME/gmsvtoolkit/tutorial
+VOLUME /home/$APP_UNAME/gmsvtoolkit/tutorials
+WORKDIR /home/$APP_UNAME/gmsvtoolkit/tutorials
 #
 # The .bashrc and .bash_profile will Define ENV variables
 #
