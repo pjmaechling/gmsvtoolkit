@@ -1,3 +1,3 @@
 # -rm removes container on exit
 # -it indicates inteactive + --tty so that users are at an interactive tty command line when the container starts
-docker run -p 8888:8888 --rm -i -t --mount type=bind,source="$(pwd)"/target,destination=/home/gtkuser/target gtk_jup:latest
+docker run -p 8888:8888 --rm -i -t --mount type=bind,source="$(pwd)"/target,destination=/home/gtkuser/target sceccode/gtk_jup:latest
