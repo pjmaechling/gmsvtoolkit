@@ -6,17 +6,17 @@ MAINTAINER Philip Maechling maechlin@usc.edu
 
 # Define Build and runtime arguments
 # These accept userid and groupid from the command line
-APP_UNAME = gmsvtoolkit
-APP_GRPNAME = scec
-APP_UID = 1000
-APP_GID = 20
-BDATE = 04262023
+#APP_UNAME = gmsvtoolkit
+#APP_GRPNAME = scec
+#APP_UID = 1000
+#APP_GID = 20
+#BDATE = 04262023
 
-ENV APP_UNAME=$APP_UNAME \
-APP_GRPNAME=$APP_GRPNAME \
-APP_UID=$APP_UID \
-APP_GID=$APP_GID \
-BDATE=$BDATE
+ENV APP_UNAME=gmsvtoolkit \
+APP_GRPNAME=scec \
+APP_UID=1000 \
+APP_GID=20 \
+BDATE=04262023
 
 # Retrieve the userid and groupid from the args so 
 # Define these parameters to support building and deploying on EC2 so user is not root
