@@ -29,13 +29,12 @@ RUN apt-get -y upgrade
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=America/Los_Angeles
 
-RUN apt-get install -y build-essential git python3 python3-pip
+RUN apt-get install -y build-essential git python3 python3-pip gfortran libfftw3-dev
 
-# Install latest gfortran and fftw
-RUN apt-get install -y libfftw3-dev gfortran
+# Install python packages
 RUN pip3 install matplotlib jupyterlab
 
-RUN ln -s /usr/bin/python3 /usr/bin/python
+#RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Setup Owners
 # Group add duplicates "staff" so just continue if it doesn't work
