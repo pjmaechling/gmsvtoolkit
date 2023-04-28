@@ -46,7 +46,7 @@ USER $APP_UNAME
 
 # Move to the user directory where the gmsvtoolkit is installed and built
 WORKDIR /home/$APP_UNAME
-RUN git clone https://github.com/pjmaechling/gmsvtoolkit.git
+RUN git clone https://github.com/sceccode/gmsvtoolkit.git
 
 WORKDIR /home/$APP_UNAME/gmsvtoolkit/gmsvtoolkit/src
 RUN make -f makefile
